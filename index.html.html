@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gakasvi — Finance Transformation, Tax Efficiency & Compliance Advisory</title>
+<meta name="description" content="Gakasvi is a finance transformation, tax efficiency and compliance advisory firm for large corporates. We find what your finance function is losing. Then we fix it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F5F2;
+  --paper-2:#EEEDE8;
+  --ink:#10243A;
+  --deep:#0A1826;
+  --muted:#4E5D6C;
+  --rule:#D6D4CC;
+  --accent:#16645C;
+  --accent-soft:#E2EDEA;
+  --amber:#A8712A;
+  --on-deep:#E9EDF1;
+  --on-deep-muted:#9FB0BF;
+  --maxw:1180px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C1620;--paper-2:#122030;--ink:#E7EDF2;--deep:#060E16;--muted:#A3B3C1;
+    --rule:#243445;--accent:#5FBFAF;--accent-soft:#12312D;--amber:#D9A05B;
+    --on-deep:#E9EDF1;--on-deep-muted:#9FB0BF;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C1620;--paper-2:#122030;--ink:#E7EDF2;--deep:#060E16;--muted:#A3B3C1;
+  --rule:#243445;--accent:#5FBFAF;--accent-soft:#12312D;--amber:#D9A05B;
+  --on-deep:#E9EDF1;--on-deep-muted:#9FB0BF;color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.6;font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.015em;line-height:1.14;margin:0}
+h1{font-size:clamp(2.1rem,5.2vw,3.5rem)}
+h2{font-size:clamp(1.6rem,3.4vw,2.35rem)}
+h3{font-size:1.18rem;line-height:1.3}
+p{margin:0 0 1rem}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.lede{font-size:clamp(1.02rem,1.8vw,1.22rem);color:var(--muted);max-width:62ch}
+.tight{max-width:70ch}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;z-index:200;background:var(--ink);color:var(--paper);padding:10px 16px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- masthead ---------- */
+.masthead{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.masthead-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:28px}
+.wordmark{font-family:"Source Serif 4",serif;font-weight:700;font-size:1.32rem;letter-spacing:.06em;text-decoration:none;white-space:nowrap}
+.wordmark span{color:var(--accent)}
+.nav{display:flex;gap:22px;margin-left:auto;align-items:center}
+.nav a{text-decoration:none;font-size:.93rem;color:var(--muted);padding:6px 0;border-bottom:1.5px solid transparent}
+.nav a:hover{color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+.btn{display:inline-block;text-decoration:none;font-size:.92rem;font-weight:500;padding:11px 20px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn-ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
+.btn-light{background:var(--paper);border-color:var(--paper);color:var(--deep)}
+.btn-light:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--rule);width:42px;height:38px;cursor:pointer;color:var(--ink)}
+.burger b{display:block;height:1.5px;background:currentColor;margin:4px auto;width:18px}
+@media (max-width:980px){
+  .nav{position:fixed;inset:calc(72px + env(safe-area-inset-top,0px)) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--rule);padding:8px 24px 20px;display:none;max-height:calc(100vh - 72px);overflow:auto}
+  .nav.open{display:flex}
+  .nav a{padding:13px 0;border-bottom:1px solid var(--rule);font-size:1rem}
+  .nav .btn{margin-top:14px;text-align:center;border-bottom:1px solid var(--ink)}
+  .burger{display:block}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule);padding:clamp(64px,9vw,110px) 0 0;color:#fff;isolation:isolate}
+.hero-media{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,#0A1826,#10243A)}
+.hero-media video{width:100%;height:100%;object-fit:cover;opacity:.55;display:block}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,14,22,.78) 0%,rgba(6,14,22,.72) 45%,rgba(6,14,22,.94) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:56px;align-items:start}
+.kicker{font-size:.85rem;color:#8FD7C9;margin:0 0 20px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.hero h1{margin-bottom:22px;max-width:16ch;color:#fff}
+.hero .lede{margin-bottom:30px;color:#C4D2DD}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;padding-bottom:clamp(40px,6vw,66px)}
+.hero .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.hero .btn-ghost:hover{border-color:#fff}
+.ladder{border-left:1px solid rgba(255,255,255,.18);padding-left:26px}
+.ladder-title{font-size:.86rem;color:#9FB0BF;margin:0 0 18px}
+.ladder ol{list-style:none;margin:0;padding:0;counter-reset:s}
+.ladder li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.ladder li:last-child{border-bottom:0}
+.ladder li::before{content:counter(s,decimal-leading-zero);font-size:.8rem;color:#D9A05B;padding-top:3px}
+.ladder b{font-family:"Source Serif 4",serif;font-weight:600;font-size:1.02rem;display:block;color:#fff}
+.ladder small{color:#9FB0BF;font-size:.87rem;line-height:1.45;display:block;margin-top:2px}
+.mute-toggle{position:absolute;right:24px;bottom:20px;z-index:2;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.78rem;padding:8px 14px;cursor:pointer;font-family:inherit;backdrop-filter:blur(6px)}
+.mute-toggle:hover{background:rgba(255,255,255,.18)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:38px}.ladder{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.16);padding-top:26px}.mute-toggle{display:none}}
+@media (prefers-reduced-motion:reduce){.hero-media video{display:none}}
+
+/* ---------- marquee ---------- */
+.marquee-wrap{border-bottom:1px solid var(--rule);background:var(--paper-2);overflow:hidden;padding:16px 0}
+.marquee-wrap p{margin:0 0 10px;text-align:center;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.marquee{display:flex;width:max-content;gap:56px;animation:scrollmq 32s linear infinite}
+.marquee span{font-family:"Source Serif 4",serif;font-size:1.05rem;color:var(--muted);white-space:nowrap;opacity:.85}
+@keyframes scrollmq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee{animation:none;flex-wrap:wrap;justify-content:center}}
+
+/* ---------- video band ---------- */
+.videoband{position:relative;overflow:hidden;color:#fff;isolation:isolate}
+.videoband video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:-2;opacity:.5}
+.videoband::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(6,14,22,.92),rgba(10,24,38,.72));z-index:-1}
+.videoband-in{padding:clamp(64px,9vw,108px) 0;max-width:720px}
+.videoband .mark{color:#8FD7C9}
+.videoband h2{color:#fff;margin-bottom:16px}
+.videoband p{color:#C4D2DD}
+@media (prefers-reduced-motion:reduce){.videoband video{display:none}}
+
+/* ---------- scroll reveal ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- photo banner (static image version of videoband) ---------- */
+.photo-banner{position:relative;overflow:hidden;color:#fff;isolation:isolate;min-height:280px;display:flex;align-items:flex-end}
+.photo-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.photo-banner::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,14,22,.92) 0%,rgba(6,14,22,.55) 55%,rgba(6,14,22,.35) 100%);z-index:-1}
+.photo-banner-in{padding:34px 0;max-width:680px}
+.photo-banner .mark{color:#8FD7C9}
+.photo-banner h2,.photo-banner h3{color:#fff}
+.photo-banner p{color:#C4D2DD;margin:0}
+
+/* ---------- inline framed photo ---------- */
+.inline-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rule);display:block}
+.photo-caption{font-size:.82rem;color:var(--muted);margin-top:10px}
+.photo-col{display:flex;flex-direction:column}
+
+/* ---------- generic page head ---------- */
+.phead{padding:clamp(44px,6vw,74px) 0 clamp(30px,4vw,46px);border-bottom:1px solid var(--rule)}
+.crumb{font-size:.84rem;color:var(--muted);margin:0 0 14px}
+.crumb a{color:var(--accent);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+section.band{padding:clamp(48px,6.5vw,82px) 0;border-bottom:1px solid var(--rule)}
+section.band.alt{background:var(--paper-2)}
+.band-head{max-width:64ch;margin-bottom:38px}
+.band-head h2{margin-bottom:14px}
+
+/* ---------- service rows ---------- */
+.rows{border-top:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:52px 1.1fr 1.3fr auto;gap:24px;align-items:start;padding:26px 0;border-bottom:1px solid var(--rule);text-decoration:none}
+.row .idx{color:var(--amber);font-size:.82rem;padding-top:6px}
+.row h3{margin:0}
+.row p{margin:0;color:var(--muted);font-size:.95rem}
+.row .more{font-size:.88rem;color:var(--accent);white-space:nowrap;padding-top:4px}
+a.row:hover h3{color:var(--accent)}
+@media (max-width:820px){.row{grid-template-columns:40px 1fr;gap:14px}.row p{grid-column:2}.row .more{grid-column:2}}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.stat{background:var(--paper);padding:28px 22px}
+.stat b{font-family:"Source Serif 4",serif;font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:600;display:block;line-height:1;color:var(--ink)}
+.stat span{display:block;margin-top:10px;font-size:.88rem;color:var(--muted);line-height:1.45}
+section.alt .stat{background:var(--paper-2)}
+@media (max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:440px){.stats{grid-template-columns:1fr}}
+
+/* ---------- cards / grids ---------- */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media (max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:660px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.card{border:1px solid var(--rule);padding:26px;background:var(--paper)}
+section.alt .card{background:var(--paper)}
+.card h3{margin-bottom:10px}
+.card p{color:var(--muted);font-size:.95rem;margin:0}
+.card-link{text-decoration:none;display:block}
+.card-link:hover{border-color:var(--accent)}
+.mark{font-size:.82rem;color:var(--amber);display:block;margin-bottom:12px}
+
+/* ---------- lists ---------- */
+ul.ticks{list-style:none;margin:0 0 1rem;padding:0}
+ul.ticks li{padding:9px 0 9px 26px;border-bottom:1px solid var(--rule);position:relative;font-size:.96rem}
+ul.ticks li::before{content:"";position:absolute;left:0;top:18px;width:11px;height:1.5px;background:var(--accent)}
+ul.ticks li:last-child{border-bottom:0}
+dl.faq{margin:0}
+dl.faq dt{font-family:"Source Serif 4",serif;font-weight:600;font-size:1.06rem;margin-top:26px;padding-top:20px;border-top:1px solid var(--rule)}
+dl.faq dd{margin:8px 0 0;color:var(--muted);max-width:72ch}
+
+/* ---------- dark cta ---------- */
+.cta{background:var(--deep);color:var(--on-deep);padding:clamp(52px,7vw,90px) 0}
+.cta h2{color:#fff;max-width:18ch;margin-bottom:16px}
+.cta p{color:var(--on-deep-muted);max-width:58ch}
+.cta .row-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+
+/* ---------- table ---------- */
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+th,td{text-align:left;padding:14px 16px 14px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;font-size:.86rem;color:var(--muted)}
+.scroller{overflow-x:auto}
+
+/* ---------- insights ---------- */
+.post{display:grid;grid-template-columns:150px 1fr;gap:26px;padding:24px 0;border-bottom:1px solid var(--rule);text-decoration:none}
+.post .meta{font-size:.84rem;color:var(--muted)}
+.post p{color:var(--muted);font-size:.95rem;margin:8px 0 0;max-width:68ch}
+.post:hover h3{color:var(--accent)}
+@media (max-width:700px){.post{grid-template-columns:1fr;gap:8px}}
+article.longform p,article.longform li{max-width:70ch}
+article.longform h3{margin:34px 0 10px}
+article.longform blockquote{margin:26px 0;padding:4px 0 4px 22px;border-left:2px solid var(--accent);font-family:"Source Serif 4",serif;font-size:1.15rem}
+
+/* ---------- form ---------- */
+form.enquiry{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:720px}
+form.enquiry label{display:flex;flex-direction:column;gap:7px;font-size:.88rem;color:var(--muted)}
+form.enquiry .full{grid-column:1/-1}
+input,select,textarea{font-family:inherit;font-size:.96rem;padding:11px 12px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:0;width:100%}
+textarea{min-height:130px;resize:vertical}
+.err{color:#B3261E;font-size:.82rem;display:none}
+:root[data-theme="dark"] .err,:root:not([data-theme="light"]) .err{color:#FF9A90}
+.invalid input,.invalid textarea,.invalid select{border-color:#B3261E}
+.invalid .err{display:block}
+.form-note{font-size:.84rem;color:var(--muted);max-width:60ch}
+.sent{border:1px solid var(--accent);background:var(--accent-soft);padding:24px;max-width:720px;display:none}
+.sent.show{display:block}
+
+/* ---------- footer ---------- */
+footer{background:var(--deep);color:var(--on-deep-muted);padding:clamp(48px,6vw,72px) 0 34px;font-size:.92rem}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
+footer h4{font-family:"IBM Plex Sans",sans-serif;font-size:.86rem;font-weight:600;color:#fff;margin:0 0 16px}
+footer a{color:var(--on-deep-muted);text-decoration:none;display:block;padding:5px 0}
+footer a:hover{color:#fff}
+.foot-mark{font-family:"Source Serif 4",serif;font-weight:700;font-size:1.3rem;letter-spacing:.06em;color:#fff;margin-bottom:14px}
+.foot-about{max-width:42ch;line-height:1.6}
+.foot-base{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot-grid{grid-template-columns:1fr}}
+
+.page{display:none}
+.page.active{display:block}
+@media (prefers-reduced-motion:no-preference){
+  .page.active{animation:fade .28s ease both}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <a class="wordmark" href="#/">GAKASVI<span>.</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><b></b><b></b><b></b></button>
+    <nav class="nav" id="nav">
+      <a href="#/services">Services</a>
+      <a href="#/approach">Approach</a>
+      <a href="#/industries">Industries</a>
+      <a href="#/results">Results</a>
+      <a href="#/insights">Insights</a>
+      <a href="#/about">About</a>
+      <a href="#/contact" class="btn">Talk to us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HOME ============ -->
+<div class="page" data-route="/">
+  <div class="hero">
+    <div class="hero-media">
+      <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
+        <source src="https://assets.mixkit.co/videos/38521/38521-360.mp4" type="video/mp4">
+      </video>
+    </div>
+    <button class="mute-toggle" id="heroMuteToggle" type="button" aria-pressed="true">🔇 Video muted</button>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="kicker">Finance · Tax · Compliance · Automation</p>
+          <h1>We find what your finance function is losing. Then we fix it.</h1>
+          <p class="lede">End-to-end finance transformation for large corporates — from process audit to full automation. Every mandate ends with a function that is tighter, tax-efficient and structurally sound.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#/contact">Talk to us</a>
+            <a class="btn btn-ghost" href="#/services">See what we do</a>
+          </div>
+        </div>
+        <div class="ladder">
+          <p class="ladder-title">The mandate runs in five stages</p>
+          <ol>
+            <li><div><b>Understand</b><small>Deep-dive into existing processes, systems and controls.</small></div></li>
+            <li><div><b>Identify</b><small>Surface the gaps, leakages and inefficiencies you are missing.</small></div></li>
+            <li><div><b>Redesign</b><small>Rebuild processes — tax-efficient, compliant, scalable.</small></div></li>
+            <li><div><b>Automate</b><small>Standardise and automate accounting workflows end to end.</small></div></li>
+            <li><div><b>Optimise</b><small>Sustain performance after we hand the function back.</small></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <p>Sector depth across</p>
+    <div class="marquee" aria-hidden="true">
+      <span>Manufacturing &amp; Engineering</span><span>Retail &amp; Consumer</span><span>Technology &amp; Services</span><span>Infrastructure &amp; EPC</span><span>Pharmaceuticals &amp; Healthcare</span><span>Banking &amp; Financial Services</span>
+      <span>Manufacturing &amp; Engineering</span><span>Retail &amp; Consumer</span><span>Technology &amp; Services</span><span>Infrastructure &amp; EPC</span><span>Pharmaceuticals &amp; Healthcare</span><span>Banking &amp; Financial Services</span>
+    </div>
+  </div>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head">
+        <h2>Five disciplines. One integrated mandate.</h2>
+        <p class="lede">We are not staffed to sell you a single workstream. Audit, tax, automation and design work together, or they leak value at the seams.</p>
+      </div>
+      <div class="rows">
+        <a class="row" href="#/services/process-audit"><span class="idx">01</span><h3>Finance process audit &amp; gap analysis</h3><p>We map the entire finance function, identify every gap, and quantify the cost of each.</p><span class="more">Read more</span></a>
+        <a class="row" href="#/services/tax-compliance"><span class="idx">02</span><h3>Tax efficiency &amp; compliance</h3><p>Recover leakages, reduce exposure, and build a tax position that holds up to scrutiny.</p><span class="more">Read more</span></a>
+        <a class="row" href="#/services/accounting-automation"><span class="idx">03</span><h3>Accounting automation &amp; standardisation</h3><p>Eliminate manual close work. Standardise the books. Cut error rates and cycle time.</p><span class="more">Read more</span></a>
+        <a class="row" href="#/services/process-automation"><span class="idx">04</span><h3>Business process automation</h3><p>Automate across procurement, payables, receivables and management reporting.</p><span class="more">Read more</span></a>
+        <a class="row" href="#/services/function-design"><span class="idx">05</span><h3>End-to-end finance function design</h3><p>Build or rebuild the function from the ground up — structured for scale.</p><span class="more">Read more</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt">
+    <div class="wrap">
+      <div class="band-head">
+        <h2>Most finance functions are built to report the past. We build them to protect the future.</h2>
+        <p class="lede">We don't audit for the sake of auditing. Every engagement ends with a finance function your board can rely on — and a number attached to what it recovered.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b data-count-to="500" data-suffix="Cr+" data-prefix="₹">₹0Cr+</b><span>Recovered in tax leakages across mandates</span></div>
+        <div class="stat"><b data-count-to="100" data-suffix="%">0%</b><span>Compliance track record across all clients</span></div>
+        <div class="stat"><b data-count-to="200" data-suffix="+">0+</b><span>Finance processes automated across industries</span></div>
+        <div class="stat"><b data-count-to="15" data-suffix="+">0+</b><span>Years of advisory experience in Indian corporates</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="videoband">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://assets.mixkit.co/videos/21629/21629-360.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="videoband-in">
+        <span class="mark">Inside a live mandate</span>
+        <h2>The same discipline a global finance team applies to its own numbers, applied to yours.</h2>
+        <p>Full-population testing, documented process ownership, and a redesign your team can run without us in the room — the working method behind every engagement, on every mandate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="band-head"><h2>Where we work</h2><p class="lede">Sector knowledge decides whether a gap analysis finds anything. We concentrate on industries where transaction volume, indirect tax and multi-entity structures create the most leakage.</p></div>
+      <div class="grid-3">
+        <a class="card card-link" href="#/industries"><h3>Manufacturing &amp; engineering</h3><p>Plant-level procurement, job work, input credit chains and cost accounting.</p></a>
+        <a class="card card-link" href="#/industries"><h3>Retail &amp; consumer</h3><p>High-volume receivables, distributor schemes, credit notes and reconciliation.</p></a>
+        <a class="card card-link" href="#/industries"><h3>Technology &amp; services</h3><p>Export incentives, cross-border billing, revenue recognition, transfer pricing.</p></a>
+        <a class="card card-link" href="#/industries"><h3>Infrastructure &amp; real estate</h3><p>Project accounting, contractor compliance, long-cycle revenue and WIP.</p></a>
+        <a class="card card-link" href="#/industries"><h3>Pharma &amp; healthcare</h3><p>Regulated documentation, trade spend, and audit-ready control environments.</p></a>
+        <a class="card card-link" href="#/industries"><h3>Financial services</h3><p>Regulatory reporting, reconciliation volume, and controls under supervision.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Your finance function has gaps. We close them.</h2>
+      <p>Schedule a confidential consultation with our advisory team. No cost, no commitment, and an NDA before anything sensitive is shared.</p>
+      <div class="row-actions">
+        <a class="btn btn-light" href="#/contact">Schedule a consultation</a>
+        <a class="btn btn-ghost" href="#/results" style="border-color:rgba(255,255,255,.3);color:#fff">See our results</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<div class="page" data-route="/services">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Services</p>
+    <h1>What we do</h1>
+    <p class="lede">Five disciplines that can be bought separately and are worth far more together. Each one carries a defined scope, a fixed deliverable set, and a measurable outcome.</p>
+  </div></div>
+  <section class="photo-banner">
+    <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&amp;w=1800&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+    <div class="wrap"><div class="photo-banner-in">
+      <span class="mark">Fixed scope, fixed fee</span>
+      <h3>Every discipline below has a defined deliverable set before work starts.</h3>
+    </div></div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="rows">
+        <a class="row" href="#/services/process-audit"><span class="idx">01</span><h3>Finance process audit &amp; gap analysis</h3><p>A full map of your finance function, every gap identified, and the annual cost of each one quantified.</p><span class="more">Read more</span></a>
+        <a class="row" href="#/services/tax-compliance"><span class="idx">02</span><h3>Tax efficiency &amp; compliance</h3><p>Direct and indirect tax review, leakage recovery, and a position that survives assessment.</p><span class="more">Read more</span></a>
+        <a class="row" href="#/services/accounting-automation"><span class="idx">03</span><h3>Accounting automation &amp; standardisation</h3><p>Standard chart of accounts, standard close, and automation of repetitive accounting work.</p><span class="more">Read more</span></a>
+        <a class="row" href="#/services/process-automation"><span class="idx">04</span><h3>Business process automation</h3><p>Workflow automation across procure-to-pay, order-to-cash and record-to-report.</p><span class="more">Read more</span></a>
+        <a class="row" href="#/services/function-design"><span class="idx">05</span><h3>End-to-end finance function design</h3><p>Target operating model, org structure, controls, systems and reporting calendar.</p><span class="more">Read more</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt">
+    <div class="wrap">
+      <div class="band-head"><h2>How the disciplines fit together</h2><p class="lede">Most clients start with the audit because it prices everything that follows. Nothing else is sold until the gap is proven.</p></div>
+      <div class="scroller"><table>
+        <thead><tr><th>If your problem is</th><th>Start here</th><th>Typical duration</th><th>What you get</th></tr></thead>
+        <tbody>
+          <tr><td>"We don't know where money is leaking"</td><td>Process audit &amp; gap analysis</td><td>4–8 weeks</td><td>Quantified gap register, prioritised by value</td></tr>
+          <tr><td>"Our tax position worries the board"</td><td>Tax efficiency &amp; compliance</td><td>6–12 weeks</td><td>Recovery plan, exposure map, compliance calendar</td></tr>
+          <tr><td>"Month-end takes too long"</td><td>Accounting automation</td><td>8–16 weeks</td><td>Standardised close, automated schedules, shorter cycle</td></tr>
+          <tr><td>"Too many people, too much email"</td><td>Business process automation</td><td>12–24 weeks</td><td>Automated workflows with approvals and audit trail</td></tr>
+          <tr><td>"The function can't support our growth"</td><td>Finance function design</td><td>12–20 weeks</td><td>Target operating model and an implementation roadmap</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="cta"><div class="wrap">
+    <h2>Not sure which one you need?</h2>
+    <p>A 45-minute diagnostic call is usually enough for us to tell you where the value sits — and whether you need us at all.</p>
+    <div class="row-actions"><a class="btn btn-light" href="#/contact">Book a diagnostic call</a></div>
+  </div></section>
+</div>
+
+<!-- ---- service detail: process audit ---- -->
+<div class="page" data-route="/services/process-audit">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/services">Services</a> / Process audit</p>
+    <h1>Finance process audit &amp; gap analysis</h1>
+    <p class="lede">We map your entire finance function, identify every gap, and quantify the cost of each. You end up with a register of findings ranked by rupee value, not a slide deck of observations.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div>
+      <h2>What we examine</h2>
+      <ul class="ticks">
+        <li>Procure-to-pay: requisition, PO discipline, GRN matching, vendor master hygiene</li>
+        <li>Order-to-cash: billing accuracy, credit control, collections, disputes and write-offs</li>
+        <li>Record-to-report: close calendar, journal controls, reconciliations, consolidation</li>
+        <li>Tax operations: return preparation, credit matching, TDS, assessments and litigation trail</li>
+        <li>Controls: delegation of authority, segregation of duties, system access, override history</li>
+        <li>Systems: ERP configuration, interfaces, spreadsheets that carry production processes</li>
+      </ul>
+    </div>
+    <div>
+      <h2>What you receive</h2>
+      <ul class="ticks">
+        <li>Process maps for every in-scope cycle, as it actually runs</li>
+        <li>A gap register with severity, root cause, owner and annual rupee impact</li>
+        <li>Quantified leakage: recoverable now, preventable going forward</li>
+        <li>A prioritised remediation roadmap with effort and sequencing</li>
+        <li>A board-ready summary written for people who don't work in finance</li>
+      </ul>
+      <p class="form-note">Typical duration 4–8 weeks depending on entity count and ERP landscape.</p>
+    </div>
+  </div></div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>How the audit runs</h2></div>
+    <div class="grid-3">
+      <div class="card"><span class="mark">Weeks 1–2</span><h3>Access and mapping</h3><p>Data extraction, system walkthroughs, and interviews with process owners at working level.</p></div>
+      <div class="card"><span class="mark">Weeks 3–5</span><h3>Testing and quantification</h3><p>Transaction-level testing on full populations where data allows, not judgemental samples.</p></div>
+      <div class="card"><span class="mark">Weeks 6–8</span><h3>Findings and roadmap</h3><p>Validation with your team, then a final register and roadmap presented to the CFO and audit committee.</p></div>
+    </div>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>Find out what the gap is worth.</h2><p>We scope the audit against your entity count, ERP and transaction volume, and give you a fixed fee before we start.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Request a scoping call</a></div></div></section>
+</div>
+
+<!-- ---- service detail: tax ---- -->
+<div class="page" data-route="/services/tax-compliance">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/services">Services</a> / Tax efficiency &amp; compliance</p>
+    <h1>Tax efficiency &amp; compliance</h1>
+    <p class="lede">Recover leakages, reduce exposure, and build a tax structure that holds up to scrutiny. Efficiency that cannot be defended in an assessment is not efficiency.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div>
+      <h2>Indirect tax</h2>
+      <ul class="ticks">
+        <li>Input tax credit review: unclaimed, blocked, reversed and mismatched credit</li>
+        <li>Reconciliation of returns to books to vendor filings, at invoice level</li>
+        <li>Classification, valuation and place-of-supply positions</li>
+        <li>Refunds: exports, inverted duty structure, and accumulated credit</li>
+        <li>Notice and assessment readiness — documentation before it is asked for</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Direct tax and withholding</h2>
+      <ul class="ticks">
+        <li>Withholding tax review across vendor and payroll populations</li>
+        <li>Allowability of expenditure, and the evidence file behind each position</li>
+        <li>Group structure, related-party pricing and intercompany documentation</li>
+        <li>Advance tax and provision accuracy against the closing position</li>
+        <li>Litigation register with a defensible view on each open matter</li>
+      </ul>
+    </div>
+  </div></div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>The compliance spine</h2><p class="lede">Recovery is one-time. The calendar is what keeps the record at 100%.</p></div>
+    <div class="grid-3">
+      <div class="card"><h3>A single calendar</h3><p>Every filing, entity, registration and due date in one owned, monitored calendar with escalation.</p></div>
+      <div class="card"><h3>Maker, checker, approver</h3><p>Named responsibility at each step, with system-enforced review before anything is filed.</p></div>
+      <div class="card"><h3>Evidence at source</h3><p>Supporting documentation captured when the transaction happens, not reconstructed years later.</p></div>
+    </div>
+  </div></div></section>
+  <section class="cta"><div class="wrap"><h2>₹500Cr+ recovered so far.</h2><p>Most of it was sitting in credit registers, vendor mismatches and refunds nobody owned. We start by looking at yours.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<!-- ---- service detail: accounting automation ---- -->
+<div class="page" data-route="/services/accounting-automation">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/services">Services</a> / Accounting automation</p>
+    <h1>Accounting automation &amp; standardisation</h1>
+    <p class="lede">Eliminate manual processes. Standardise your books. Reduce error rates and close cycle time — without a two-year systems programme.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div>
+      <h2>Standardise first</h2>
+      <p>Automation applied to an inconsistent process multiplies the inconsistency. We standardise before we automate.</p>
+      <ul class="ticks">
+        <li>One chart of accounts across entities, with a documented mapping</li>
+        <li>One accounting manual: policies written as instructions, not principles</li>
+        <li>One close calendar, with dependencies and owners named</li>
+        <li>Standard journal templates with embedded validation</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Then automate</h2>
+      <ul class="ticks">
+        <li>Bank, vendor, customer and intercompany reconciliations</li>
+        <li>Accruals, prepayments, depreciation and recurring journals</li>
+        <li>Invoice capture and three-way matching</li>
+        <li>Consolidation, eliminations and reporting pack generation</li>
+        <li>Exception reporting so people review breaks, not everything</li>
+      </ul>
+    </div>
+  </div></div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>What usually changes</h2></div>
+    <div class="stats">
+      <div class="stat"><b>−60%</b><span>Typical reduction in close cycle days</span></div>
+      <div class="stat"><b>−75%</b><span>Manual journal entries after standardisation</span></div>
+      <div class="stat"><b>200+</b><span>Processes automated across client mandates</span></div>
+      <div class="stat"><b>100%</b><span>Reconciliations with a documented owner</span></div>
+    </div>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>Close the books in days, not weeks.</h2><p>We work with the ERP you already own. Replacing it is a last resort, not a starting assumption.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<!-- ---- service detail: BPA ---- -->
+<div class="page" data-route="/services/process-automation">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/services">Services</a> / Business process automation</p>
+    <h1>Business process automation</h1>
+    <p class="lede">Automate finance workflows across procurement, payables, receivables and reporting — with approvals, controls and an audit trail built in from the first release.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div class="card"><h3>Procure to pay</h3><p>Requisition and PO workflow, vendor onboarding with tax validation, invoice capture, three-way match, exception routing and payment release controls.</p></div>
+    <div class="card"><h3>Order to cash</h3><p>Customer master control, billing automation, credit limits, dunning, collections workflow, dispute tracking and cash application.</p></div>
+    <div class="card"><h3>Record to report</h3><p>Close task management, automated reconciliations, journal approval routing, and a reporting pack that builds itself from the ledger.</p></div>
+    <div class="card"><h3>Compliance operations</h3><p>Return preparation workflows, document repositories tied to transactions, and automated alerts on filing dependencies.</p></div>
+  </div></div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>How we build</h2><p class="lede">Short releases against a signed process design. Nothing goes live without a control walkthrough and a rollback path.</p></div>
+    <div class="grid-3">
+      <div class="card"><span class="mark">Design</span><h3>Process first, tool second</h3><p>We agree the redesigned process and its controls before choosing what to build it on.</p></div>
+      <div class="card"><span class="mark">Build</span><h3>Release in slices</h3><p>Each release covers one workflow end to end, in production, with real users — typically 3–4 weeks.</p></div>
+      <div class="card"><span class="mark">Handover</span><h3>Your team runs it</h3><p>Documentation, admin training and a support taper. We are not trying to become permanent staff.</p></div>
+    </div>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>Take the manual work out of finance.</h2><p>Tell us where your team spends its evenings. That is usually the right first workflow.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<!-- ---- service detail: function design ---- -->
+<div class="page" data-route="/services/function-design">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/services">Services</a> / Finance function design</p>
+    <h1>End-to-end finance function design</h1>
+    <p class="lede">Build or rebuild your finance function from the ground up — structured for scale, staffed correctly, and controlled well enough to survive growth, audit and diligence.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div>
+      <h2>The operating model</h2>
+      <ul class="ticks">
+        <li>What sits central, what sits in the business, what gets outsourced</li>
+        <li>Shared service design where transaction volume justifies it</li>
+        <li>Role definitions, spans of control and the hiring plan behind them</li>
+        <li>Delegation of authority matched to risk, not to seniority alone</li>
+        <li>A systems architecture that will still hold at three times the volume</li>
+      </ul>
+    </div>
+    <div>
+      <h2>The control environment</h2>
+      <ul class="ticks">
+        <li>Risk and control matrix mapped to each process cycle</li>
+        <li>Segregation of duties enforced in the system, not on paper</li>
+        <li>Internal financial controls documentation and testing approach</li>
+        <li>Management reporting: one set of numbers, one definition per metric</li>
+        <li>Readiness for statutory audit, due diligence and lender scrutiny</li>
+      </ul>
+    </div>
+  </div></div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>When clients call us for this</h2></div>
+    <div class="grid-3">
+      <div class="card"><h3>Before a transaction</h3><p>Diligence, listing or fundraising exposes everything. Better to find it before the buyer does.</p></div>
+      <div class="card"><h3>After rapid growth</h3><p>A function that worked at ₹200Cr revenue rarely works at ₹1,000Cr without redesign.</p></div>
+      <div class="card"><h3>On a CFO transition</h3><p>A new CFO needs an independent read of what they have inherited, fast.</p></div>
+    </div>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>Build the function your next five years need.</h2><p>We design it, help you hire into it, and stay until it runs without us.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<!-- ============ APPROACH ============ -->
+<div class="page" data-route="/approach">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Approach</p>
+    <h1>A five-step mandate. No ambiguity.</h1>
+    <p class="lede">Every engagement follows the same sequence. You know what happens each week, who is involved, and what lands at the end of each stage.</p>
+  </div></div>
+  <section class="photo-banner">
+    <img src="https://images.unsplash.com/photo-1644519797636-e32b88d730bd?q=80&amp;w=1800&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+    <div class="wrap"><div class="photo-banner-in">
+      <span class="mark">Understand → Identify → Redesign → Automate → Optimise</span>
+      <h3>The same five stages, on every mandate, in the same order.</h3>
+    </div></div>
+  </section>
+  <section class="band"><div class="wrap">
+    <div class="rows">
+      <div class="row"><span class="idx">01</span><h3>Understand</h3><p>Deep-dive into your existing finance processes, systems and controls. Walkthroughs with the people who actually run them, and extraction of full transaction data.</p><span class="more">Weeks 1–2</span></div>
+      <div class="row"><span class="idx">02</span><h3>Identify</h3><p>Surface gaps, leakages and inefficiencies your current function misses — each one quantified, attributed to a root cause, and validated with your team before it is reported.</p><span class="more">Weeks 3–5</span></div>
+      <div class="row"><span class="idx">03</span><h3>Redesign</h3><p>Rebuild processes with precision — tax-efficient, compliant and scalable. Documented as instructions your team can follow without us in the room.</p><span class="more">Weeks 6–10</span></div>
+      <div class="row"><span class="idx">04</span><h3>Automate</h3><p>Standardise and automate accounting workflows end to end, released in slices, each one live in production with real users before the next begins.</p><span class="more">Weeks 10–24</span></div>
+      <div class="row"><span class="idx">05</span><h3>Optimise</h3><p>Continuous improvement to sustain a high-performance finance function — with a defined support taper, not an open-ended retainer.</p><span class="more">Ongoing</span></div>
+    </div>
+  </div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>What we ask of you</h2><p class="lede">Mandates fail for predictable reasons. These four commitments prevent most of them.</p></div>
+    <div class="grid-2">
+      <div class="card"><h3>One executive sponsor</h3><p>Usually the CFO. Someone with the authority to decide when a process changes and a team objects.</p></div>
+      <div class="card"><h3>Read access to systems and data</h3><p>We test full populations, not samples. That needs data extracts, not screenshots.</p></div>
+      <div class="card"><h3>Named process owners</h3><p>One person per cycle who can answer how it really runs, and who will own the redesign afterwards.</p></div>
+      <div class="card"><h3>A fortnightly decision forum</h3><p>Forty-five minutes, same attendees, decisions recorded. Programmes stall in the gaps between meetings.</p></div>
+    </div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="band-head"><h2>How we engage</h2><p class="lede">Three commercial structures. We will tell you which one fits before you ask.</p></div>
+    <div class="scroller"><table>
+      <thead><tr><th>Model</th><th>Best for</th><th>Fee basis</th><th>Commitment</th></tr></thead>
+      <tbody>
+        <tr><td>Diagnostic</td><td>First engagements and board mandates</td><td>Fixed fee</td><td>4–8 weeks</td></tr>
+        <tr><td>Transformation programme</td><td>Redesign and automation at scale</td><td>Fixed fee by phase, with milestone gates</td><td>3–12 months</td></tr>
+        <tr><td>Advisory retainer</td><td>Sustaining the function after handover</td><td>Monthly, capped hours</td><td>Rolling, 30-day exit</td></tr>
+      </tbody>
+    </table></div>
+    <p class="form-note" style="margin-top:18px">Recovery-linked fees are available on specific tax mandates where the baseline can be measured objectively. We will say so if we think it is the wrong structure for you.</p>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>No ambiguity, from the first meeting.</h2><p>You will get a written scope, a fixed fee and a named team before anything starts.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Start a conversation</a></div></div></section>
+</div>
+
+<!-- ============ INDUSTRIES ============ -->
+<div class="page" data-route="/industries">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Industries</p>
+    <h1>Industries</h1>
+    <p class="lede">A gap analysis is only as good as the sector knowledge behind it. These are the industries where we know what to look for before we arrive.</p>
+  </div></div>
+  <section class="videoband">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://assets.mixkit.co/videos/1509/1509-360.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="videoband-in">
+        <span class="mark">Across six sectors</span>
+        <h2>Different balance sheets. The same failure modes.</h2>
+        <p>Manufacturing, retail, technology, infrastructure, pharma and financial services all lose value in different places — but for the same handful of reasons.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div class="card"><h3>Manufacturing &amp; engineering</h3><p>Job-work credit chains, plant-level procurement discipline, scrap and by-product accounting, cost centre design, and the input credit that goes missing between plant and head office.</p></div>
+    <div class="card"><h3>Retail &amp; consumer goods</h3><p>Distributor schemes and credit notes, high-volume receivables reconciliation, returns accounting, and trade spend that is approved commercially but never tested financially.</p></div>
+    <div class="card"><h3>Technology &amp; business services</h3><p>Export refunds and accumulated credit, cross-border billing and place of supply, revenue recognition on long contracts, and intercompany pricing documentation.</p></div>
+    <div class="card"><h3>Infrastructure, EPC &amp; real estate</h3><p>Project-wise accounting, contractor and sub-contractor compliance, retention and WIP treatment, and revenue recognised across multi-year cycles.</p></div>
+    <div class="card"><h3>Pharmaceutical &amp; healthcare</h3><p>Regulated documentation standards, distributor and institutional billing, expiry and returns, and control environments that must satisfy more than one regulator.</p></div>
+    <div class="card"><h3>Banking &amp; financial services</h3><p>Reconciliation at volume, regulatory reporting accuracy, vendor and outsourcing controls, and evidence standards set by supervisory expectation.</p></div>
+  </div></div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>Where we see leakage most often</h2><p class="lede">Across sectors, the same handful of failures account for most of what we recover.</p></div>
+    <ul class="ticks" style="max-width:74ch">
+      <li>Input tax credit that lapses because vendor filings were never reconciled at invoice level</li>
+      <li>Duplicate and overpaid vendor invoices in the absence of enforced three-way matching</li>
+      <li>Contracted rates and rebates that are never applied to the invoices they govern</li>
+      <li>Withholding applied at the wrong rate across large, long-tail vendor populations</li>
+      <li>Refunds — export, inverted duty, excess payment — that nobody was made responsible for</li>
+      <li>Credit notes issued commercially but never reflected in the tax position</li>
+      <li>Reconciliations performed but never reviewed, with breaks aging quietly for years</li>
+    </ul>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>We probably know your sector's failure modes.</h2><p>Tell us the industry and the entity structure. We will tell you where we would look first.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<!-- ============ RESULTS ============ -->
+<div class="page" data-route="/results">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Results</p>
+    <h1>Results</h1>
+    <p class="lede">Client names are confidential by default. The numbers, the scope and the method are not — and we will walk any prospective client through a full case under NDA.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="stats">
+    <div class="stat"><b data-count-to="500" data-suffix="Cr+" data-prefix="₹">₹0Cr+</b><span>Recovered in tax leakages across mandates</span></div>
+    <div class="stat"><b data-count-to="100" data-suffix="%">0%</b><span>Compliance track record across all clients</span></div>
+    <div class="stat"><b data-count-to="200" data-suffix="+">0+</b><span>Finance processes automated across industries</span></div>
+    <div class="stat"><b data-count-to="15" data-suffix="+">0+</b><span>Years of advisory experience in Indian corporates</span></div>
+  </div></div></section>
+  <section class="videoband">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://assets.mixkit.co/videos/9607/9607-360.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="videoband-in">
+        <span class="mark">How we measure a mandate</span>
+        <h2>Recovered. Protected. Released. Every number traceable to your own ledger.</h2>
+        <p>We do not count avoided costs we cannot evidence — the same standard we hold your finance function to.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>Selected mandates</h2></div>
+    <div class="grid-2">
+      <div class="card"><span class="mark">Manufacturing · multi-plant</span><h3>Credit reconciliation across nine plants</h3><p>Invoice-level reconciliation of returns to books to vendor filings across three years identified substantial lapsed and mismatched input credit. A monthly vendor-compliance process now prevents recurrence, and plant finance teams own it.</p></div>
+      <div class="card"><span class="mark">Consumer goods · national distribution</span><h3>Trade spend and credit note control</h3><p>Scheme accruals were being approved commercially without a financial control. We rebuilt the approval workflow, tied every credit note to a scheme and an invoice, and closed the gap between the commercial and tax positions.</p></div>
+      <div class="card"><span class="mark">Technology services · export-led</span><h3>Refund cycle rebuilt</h3><p>Accumulated credit had built up because no single role owned refund filing. A defined owner, a documented evidence pack and a filing calendar turned a dormant balance into a recurring cash inflow.</p></div>
+      <div class="card"><span class="mark">Infrastructure · project accounting</span><h3>Close cycle cut from 18 days to 6</h3><p>Standard chart of accounts across project entities, automated reconciliations and a dependency-mapped close calendar. Management reporting now lands before the board asks for it.</p></div>
+      <div class="card"><span class="mark">Pharmaceuticals · regulated</span><h3>Payables automation with full audit trail</h3><p>Invoice capture, three-way matching and exception routing replaced an email-based approval chain. Duplicate payments stopped, and the audit trail now satisfies both statutory and regulatory review.</p></div>
+      <div class="card"><span class="mark">Group holding · seven entities</span><h3>Finance function redesigned pre-diligence</h3><p>Target operating model, shared service design, control matrix and a hiring plan, delivered ahead of a fundraise. Diligence findings on finance processes: none material.</p></div>
+    </div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="band-head"><h2>How we report value</h2><p class="lede">Every number we claim is traceable to a transaction, a filing or a measured cycle time. We do not count avoided costs we cannot evidence.</p></div>
+    <div class="grid-3">
+      <div class="card"><h3>Recovered</h3><p>Cash or credit actually realised, agreed with your team and reconciled to your ledger.</p></div>
+      <div class="card"><h3>Protected</h3><p>Exposure removed, measured against the assessed or assessable position it would have created.</p></div>
+      <div class="card"><h3>Released</h3><p>Effort returned to your team, measured in cycle days and processed volume per person.</p></div>
+    </div>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>We will show you the full case.</h2><p>Under NDA, with the working papers, for the mandate closest to your situation.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Request a case walkthrough</a></div></div></section>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div class="page" data-route="/about">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / About</p>
+    <h1>Built for finance functions that carry real weight</h1>
+    <p class="lede">Gakasvi is a finance transformation, tax efficiency and compliance advisory firm working with large corporates across India. Small team, senior people, no leverage pyramid.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div>
+      <h2>Why we exist</h2>
+      <p>Most finance functions are built to report the past. They close the books, file the returns and answer the auditor. What they rarely do is ask what the process itself is costing.</p>
+      <p>We started Gakasvi because that question was going unasked in companies large enough to lose serious money to it. In fifteen years of working inside Indian corporate finance functions, the pattern held: the leakage was never hidden, it was simply unowned.</p>
+      <p>So we built a firm around finding it and closing it — audit, tax, automation and design in one mandate, because separating them is how the value escapes in the first place.</p>
+    </div>
+    <div>
+      <h2>How we work</h2>
+      <ul class="ticks">
+        <li>Senior people on the ground. The person who scopes your mandate runs it.</li>
+        <li>Fixed fees and written scope before work starts.</li>
+        <li>Full-population testing wherever the data allows it.</li>
+        <li>Findings validated with your team before they reach your board.</li>
+        <li>A defined end. We hand the function back and taper out.</li>
+        <li>Independence. We take no commission from any software vendor we recommend.</li>
+      </ul>
+      <img class="inline-photo" style="margin-top:22px" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Advisory team reviewing findings together in a working session" loading="lazy">
+      <p class="photo-caption">Findings reviewed with the client team before they reach the board — not after.</p>
+    </div>
+  </div></div></section>
+  <section class="videoband">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://assets.mixkit.co/videos/146/146-360.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="videoband-in">
+        <span class="mark">Fifteen years in</span>
+        <h2>Senior people on the ground, not on the org chart.</h2>
+        <p>The partner who scopes your mandate is the one who runs it — through the audit, the redesign, and the automation build that follows.</p>
+      </div>
+    </div>
+  </section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>Leadership</h2></div>
+    <div class="grid-2">
+      <div class="card"><span class="mark">Founder</span><h3>Arun — Founder &amp; Managing Partner</h3><p>Fifteen years across finance transformation, indirect tax and controllership in Indian corporates. Has led gap analyses and recovery mandates across manufacturing, consumer, services and infrastructure, and personally leads scoping on every engagement.</p></div>
+      <div class="card"><span class="mark">Practice</span><h3>Advisory &amp; automation team</h3><p>Chartered accountants, indirect tax specialists and process automation engineers working as one team. Every mandate is staffed with a tax lead and an automation lead from day one, because the redesign and the tax position have to be built together.</p></div>
+    </div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="band-head"><h2>What we will not do</h2><p class="lede">Being clear about this saves everyone time.</p></div>
+    <ul class="ticks" style="max-width:72ch">
+      <li>We do not take positions we could not defend in an assessment</li>
+      <li>We do not sell software licences or take vendor referral fees</li>
+      <li>We do not staff mandates with juniors and invoice for partners</li>
+      <li>We do not accept engagements where we cannot get access to underlying data</li>
+      <li>We do not extend retainers that are no longer producing measurable value</li>
+    </ul>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>Meet the people who would run your mandate.</h2><p>First conversations are with the partner who would lead the work, not a business development team.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Arrange a meeting</a></div></div></section>
+</div>
+
+<!-- ============ INSIGHTS ============ -->
+<div class="page" data-route="/insights">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Insights</p>
+    <h1>Insights</h1>
+    <p class="lede">Notes from live mandates, written for CFOs and finance controllers. No commentary on legislation you have already read three versions of.</p>
+  </div></div>
+  <section class="band"><div class="wrap">
+    <a class="post" href="#/insights/input-credit-leakage"><div class="meta">Indirect tax<br>12 min read</div><div><h3>The seven places input credit quietly disappears</h3><p>Lapsed credit is rarely a single failure. It is a chain of small ownership gaps between procurement, accounts payable and the tax team — and every one of them is fixable.</p></div></a>
+    <a class="post" href="#/insights/close-cycle"><div class="meta">Controllership<br>9 min read</div><div><h3>Why your close takes eighteen days</h3><p>The close is not slow because of the work. It is slow because of the waiting — and the dependencies nobody has mapped.</p></div></a>
+    <a class="post" href="#/insights/automation-before-erp"><div class="meta">Automation<br>8 min read</div><div><h3>What to automate before you replace the ERP</h3><p>Most of the benefit attributed to ERP replacement is available without one. Here is what to do first, and how to tell when replacement is genuinely the answer.</p></div></a>
+    <a class="post" href="#/insights/diligence-readiness"><div class="meta">Transactions<br>10 min read</div><div><h3>What diligence finds in the finance function</h3><p>Buyers look at the same nine things. Six of them can be fixed in a quarter if you start before the process does.</p></div></a>
+    <a class="post" href="#/insights/controls-that-hold"><div class="meta">Controls<br>7 min read</div><div><h3>Controls that hold when volume triples</h3><p>Manual controls work until they don't, and they fail without warning. The test is whether the control survives a threefold increase in transactions.</p></div></a>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>Get the quarterly note.</h2><p>One email a quarter to finance leaders: what we are seeing across mandates, and what is worth acting on. No promotion.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Subscribe via contact form</a></div></div></section>
+</div>
+
+<div class="page" data-route="/insights/input-credit-leakage">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/insights">Insights</a> / Input credit</p>
+    <h1>The seven places input credit quietly disappears</h1>
+    <p class="lede">Indirect tax · 12 min read</p>
+  </div></div>
+  <section class="band"><div class="wrap"><article class="longform">
+    <p>When a large corporate loses input credit, the loss almost never comes from one bad decision. It accumulates through small gaps in ownership — points where a task belongs to procurement in practice, to accounts payable on the org chart, and to the tax team in consequence.</p>
+    <blockquote>The leakage is not hidden. It is unowned.</blockquote>
+    <h3>1. Vendor filings that were never reconciled at invoice level</h3>
+    <p>Summary-level reconciliation will tell you the totals roughly agree. It will not tell you which specific invoices your vendor failed to report, which is the only level at which you can act — by withholding payment, by following up, or by writing the credit off deliberately rather than by default.</p>
+    <h3>2. Credit blocked by documentation, not by law</h3>
+    <p>Eligible credit gets reversed because the supporting document was incomplete at the time of review. The transaction was fine; the evidence was assembled months later by someone who wasn't there.</p>
+    <h3>3. Job work and movement of goods</h3>
+    <p>In manufacturing, credit chains break at plant boundaries. Goods move, documentation follows late, and the timing mismatch is resolved by reversing rather than investigating.</p>
+    <h3>4. Credit notes issued commercially, not fiscally</h3>
+    <p>A commercial team agrees a rebate. A credit note is issued. The tax treatment is applied to a different period, or not at all, and the position on both sides stops agreeing.</p>
+    <h3>5. Refunds nobody owns</h3>
+    <p>Export refunds and inverted duty accumulations sit as balances rather than as receivables. No role has the filing on their calendar, so the balance grows until someone treats it as a project.</p>
+    <h3>6. Rate and classification applied inconsistently across entities</h3>
+    <p>Group entities take different positions on the same transaction type, usually because each was decided locally at different times. Whichever position is wrong, one of them creates exposure and the other creates lost credit.</p>
+    <h3>7. Reconciliation performed but never reviewed</h3>
+    <p>The most expensive failure of all. A reconciliation is produced monthly, filed, and never read. Breaks age for years inside a control that technically exists.</p>
+    <h3>What to do about it</h3>
+    <ul class="ticks">
+      <li>Reconcile at invoice level, monthly, with a named owner and an escalation rule</li>
+      <li>Capture documentation at transaction time, tied to the transaction record</li>
+      <li>Put refund filings on the compliance calendar with an owner, like any return</li>
+      <li>Standardise classification positions across entities and document the reasoning</li>
+      <li>Review reconciliations. A control nobody reads is not a control</li>
+    </ul>
+    <p style="margin-top:28px"><a href="#/services/tax-compliance">Read about our tax efficiency and compliance practice</a>.</p>
+  </article></div></section>
+  <section class="cta"><div class="wrap"><h2>Find out what yours is losing.</h2><p>A credit review usually pays for itself in the first month of findings.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<div class="page" data-route="/insights/close-cycle">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/insights">Insights</a> / Controllership</p>
+    <h1>Why your close takes eighteen days</h1>
+    <p class="lede">Controllership · 9 min read</p>
+  </div></div>
+  <section class="band"><div class="wrap"><article class="longform">
+    <p>Ask a controller why the close takes as long as it does, and the answer is usually volume. Measure it, and the answer is almost always waiting.</p>
+    <h3>Map the dependencies before you touch anything</h3>
+    <p>Most close calendars are lists of tasks with dates. They are not dependency maps, so nobody can see which single late input is holding six downstream tasks. Until you can see that, every improvement effort is guesswork.</p>
+    <h3>The three structural causes</h3>
+    <ul class="ticks">
+      <li><strong>Sequential work that could be parallel.</strong> Entities closing one after another because one team does all of them.</li>
+      <li><strong>Reconciliations performed after the fact.</strong> Anything reconciled only at month-end turns the close into an investigation.</li>
+      <li><strong>Review as a bottleneck.</strong> One person approving everything, in order, at the busiest time of the month.</li>
+    </ul>
+    <h3>What changes the number</h3>
+    <p>Continuous reconciliation moves work out of the close window. Standard journal templates with validation remove the correction loop. Exception-based review means the reviewer looks at breaks rather than at everything. Automating the reporting pack removes two days that were never accounting work in the first place.</p>
+    <p>A six-day close in a multi-entity group is normal, not aspirational. Eighteen days means the work is being done at the wrong time, not that there is too much of it.</p>
+    <p style="margin-top:28px"><a href="#/services/accounting-automation">Read about accounting automation and standardisation</a>.</p>
+  </article></div></section>
+  <section class="cta"><div class="wrap"><h2>Shorten the close.</h2><p>We will map your dependencies in the first two weeks and tell you which three changes matter.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<div class="page" data-route="/insights/automation-before-erp">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/insights">Insights</a> / Automation</p>
+    <h1>What to automate before you replace the ERP</h1>
+    <p class="lede">Automation · 8 min read</p>
+  </div></div>
+  <section class="band"><div class="wrap"><article class="longform">
+    <p>ERP replacement is the most expensive answer to questions that usually have cheaper ones. It is sometimes the right answer. It is rarely the first one.</p>
+    <h3>Start with the work that happens outside the system</h3>
+    <p>Look at where your team actually spends time: invoice capture, matching, reconciliation, follow-up email, and building the reporting pack. Almost none of that requires a new ERP. It requires workflow, validation and integration around the ERP you already own.</p>
+    <h3>The order that works</h3>
+    <ul class="ticks">
+      <li>Standardise the chart of accounts and the accounting manual first</li>
+      <li>Automate reconciliations, because they produce the data quality everything else depends on</li>
+      <li>Then payables: capture, matching and exception routing</li>
+      <li>Then receivables: billing, dunning and cash application</li>
+      <li>Then reporting, which is mostly assembly once the ledger is trustworthy</li>
+    </ul>
+    <h3>When replacement is genuinely the answer</h3>
+    <p>When the system cannot enforce segregation of duties, cannot support your entity structure, or has been customised past the point where it can be upgraded safely. Those are architectural limits. Everything else is a process problem wearing a systems costume.</p>
+    <p style="margin-top:28px"><a href="#/services/process-automation">Read about business process automation</a>.</p>
+  </article></div></section>
+  <section class="cta"><div class="wrap"><h2>Get more from the system you own.</h2><p>We are vendor-independent and take no referral fees. If replacement is right, we will say so.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<div class="page" data-route="/insights/diligence-readiness">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/insights">Insights</a> / Transactions</p>
+    <h1>What diligence finds in the finance function</h1>
+    <p class="lede">Transactions · 10 min read</p>
+  </div></div>
+  <section class="band"><div class="wrap"><article class="longform">
+    <p>Financial diligence is more predictable than most sellers expect. Buyers look at the same short list, and the findings that reduce valuation are usually the ones that could have been fixed in a quarter.</p>
+    <h3>The nine things they test</h3>
+    <ul class="ticks">
+      <li>Quality of earnings: what is recurring, and what was helped by timing</li>
+      <li>Revenue recognition policy and its consistency across periods</li>
+      <li>Working capital: the true normalised level, not the year-end snapshot</li>
+      <li>Provisions and their adequacy, especially litigation and receivables</li>
+      <li>Tax exposure: open assessments, positions taken, documentation behind them</li>
+      <li>Related-party transactions and their pricing basis</li>
+      <li>Off-balance-sheet commitments and contingent liabilities</li>
+      <li>Controls: segregation of duties, access, override history</li>
+      <li>Reconciliation status and the age of unresolved breaks</li>
+    </ul>
+    <h3>What you can fix before the process starts</h3>
+    <p>Clear aged reconciliation breaks. Document your tax positions with the evidence that supports them. Rebuild the related-party file. Set provisions on a stated policy rather than judgement. None of this is difficult. It is simply work that never had a deadline until now.</p>
+    <p>The three you usually cannot fix late — quality of earnings, revenue policy history and genuine working capital levels — are the reason to start a year out rather than a month out.</p>
+    <p style="margin-top:28px"><a href="#/services/function-design">Read about finance function design</a>.</p>
+  </article></div></section>
+  <section class="cta"><div class="wrap"><h2>Be ready before the buyer arrives.</h2><p>We run pre-diligence reviews that find what the other side will find, while you still have time to act.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<div class="page" data-route="/insights/controls-that-hold">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / <a href="#/insights">Insights</a> / Controls</p>
+    <h1>Controls that hold when volume triples</h1>
+    <p class="lede">Controls · 7 min read</p>
+  </div></div>
+  <section class="band"><div class="wrap"><article class="longform">
+    <p>A control environment designed for today's volume is a control environment with an expiry date. The useful test is simple: if transaction volume tripled next quarter, which controls would survive?</p>
+    <h3>Manual controls fail silently</h3>
+    <p>A reviewer checking every invoice works at a thousand a month. At three thousand, the checking becomes cursory, and nothing in the process announces that it has stopped being a control. The documentation still says it happens. It still happens. It just no longer catches anything.</p>
+    <h3>Three properties of a control that scales</h3>
+    <ul class="ticks">
+      <li><strong>System-enforced.</strong> The transaction cannot proceed if the condition is not met.</li>
+      <li><strong>Exception-based.</strong> People review what broke, not what passed.</li>
+      <li><strong>Evidenced automatically.</strong> The audit trail is a by-product, not a separate task.</li>
+    </ul>
+    <h3>Where to start</h3>
+    <p>Take your risk and control matrix and mark every control that depends on a person looking at every item. That is your list, in order of transaction volume. Convert the top five, and you will have covered most of the risk that growth creates.</p>
+    <p style="margin-top:28px"><a href="#/services/function-design">Read about control environment design</a>.</p>
+  </article></div></section>
+  <section class="cta"><div class="wrap"><h2>Design controls for the volume you are heading to.</h2><p>Not the one you have today.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="page" data-route="/contact">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Contact</p>
+    <h1>Talk to us</h1>
+    <p class="lede">Tell us roughly what you are dealing with. A partner will respond within one working day, and we will sign an NDA before you share anything sensitive.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div>
+      <h2>Send an enquiry</h2>
+      <form class="enquiry" id="enquiry" novalidate>
+        <label class="field">Full name
+          <input type="text" name="name" autocomplete="name" required>
+          <span class="err">Enter your name.</span>
+        </label>
+        <label class="field">Work email
+          <input type="email" name="email" autocomplete="email" required>
+          <span class="err">Enter a valid work email address.</span>
+        </label>
+        <label class="field">Company
+          <input type="text" name="company" autocomplete="organization" required>
+          <span class="err">Enter your company name.</span>
+        </label>
+        <label class="field">Phone
+          <input type="tel" name="phone" autocomplete="tel">
+        </label>
+        <label class="field full">What do you need help with?
+          <select name="topic">
+            <option>Finance process audit &amp; gap analysis</option>
+            <option>Tax efficiency &amp; compliance</option>
+            <option>Accounting automation &amp; standardisation</option>
+            <option>Business process automation</option>
+            <option>End-to-end finance function design</option>
+            <option>Not sure yet — diagnostic call</option>
+            <option>Quarterly insights note</option>
+            <option>Careers</option>
+          </select>
+        </label>
+        <label class="field full">Tell us more
+          <textarea name="message" required placeholder="Entity structure, ERP, approximate turnover, and what prompted you to get in touch."></textarea>
+          <span class="err">A sentence or two is enough.</span>
+        </label>
+        <div class="full">
+          <button class="btn" type="submit">Send enquiry</button>
+          <p class="form-note" style="margin-top:14px">We use what you send only to respond to your enquiry. See our <a href="#/privacy">privacy policy</a>.</p>
+        </div>
+      </form>
+      <div class="sent" id="sent" role="status" aria-live="polite">
+        <h3 style="margin-bottom:8px">Enquiry ready to send</h3>
+        <p style="margin-bottom:12px">This site has no server behind the form. Your message has been prepared as an email — open it below, or write to us directly at arun.gakasvi@gmail.com.</p>
+        <a class="btn" id="mailto" href="#">Open in your email app</a>
+      </div>
+    </div>
+    <div>
+      <img class="inline-photo" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Corporate office towers, representative of the environment our clients operate in" loading="lazy">
+      <h2 style="margin-top:22px">Direct lines</h2>
+      <ul class="ticks">
+        <li><strong>Email</strong><br><a href="mailto:arun.gakasvi@gmail.com">arun.gakasvi@gmail.com</a></li>
+        <li><strong>Phone</strong><br><a href="tel:+918505804836">+91 8505 804 836</a></li>
+        <li><strong>Office</strong><br>A-426, Logix Technova, Sector-132,<br>Noida 201304, Uttar Pradesh, India</li>
+        <li><strong>Hours</strong><br>Monday to Friday, 9:30am–6:30pm IST</li>
+      </ul>
+      <h2 style="margin-top:34px">What happens next</h2>
+      <ul class="ticks">
+        <li>A partner responds within one working day</li>
+        <li>A 45-minute call to understand the situation — no cost</li>
+        <li>NDA signed before any data is shared</li>
+        <li>A written scope and fixed fee, usually within a week</li>
+      </ul>
+    </div>
+  </div></div></section>
+</div>
+
+<!-- ============ CAREERS ============ -->
+<div class="page" data-route="/careers">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Careers</p>
+    <h1>Careers</h1>
+    <p class="lede">We hire few people and give them real responsibility early. If you want to sit behind a partner for four years, this is the wrong firm.</p>
+  </div></div>
+  <section class="band"><div class="wrap">
+    <div class="band-head"><h2>Open roles</h2></div>
+    <div class="rows">
+      <div class="row"><span class="idx">01</span><h3>Manager — Indirect tax &amp; recovery</h3><p>Lead credit reviews and reconciliation mandates at client sites. CA with 5–8 years, strong on GST and comfortable working at transaction level in large data sets.</p><span class="more">Noida · Full time</span></div>
+      <div class="row"><span class="idx">02</span><h3>Consultant — Finance transformation</h3><p>Process mapping, gap quantification and redesign across procure-to-pay and record-to-report. CA or MBA with 3–5 years in controllership or advisory.</p><span class="more">Noida · Full time</span></div>
+      <div class="row"><span class="idx">03</span><h3>Automation engineer — Finance workflows</h3><p>Build workflow, integration and reconciliation automation around client ERPs. Strong scripting, API integration, and the patience to work with accountants.</p><span class="more">Noida / hybrid</span></div>
+      <div class="row"><span class="idx">04</span><h3>Analyst — Data &amp; reconciliation</h3><p>Full-population testing, reconciliation at scale, and analysis that turns findings into rupee numbers. 1–3 years, high comfort with large data sets.</p><span class="more">Noida · Full time</span></div>
+    </div>
+  </div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>What it is like here</h2></div>
+    <div class="grid-3">
+      <div class="card"><h3>Client-facing from month one</h3><p>You will present findings to controllers and CFOs early. We prepare you for it, then let you do it.</p></div>
+      <div class="card"><h3>Small teams, whole problems</h3><p>Three or four people on a mandate. You see the whole engagement, not one workstream of it.</p></div>
+      <div class="card"><h3>Technical depth expected</h3><p>We fund certifications and give study leave. We also expect you to know your subject cold.</p></div>
+    </div>
+    <p class="form-note" style="margin-top:26px">To apply, send your CV and a short note on a finance process you have personally improved to arun.gakasvi@gmail.com, or use the <a href="#/contact">contact form</a> and select Careers.</p>
+  </div></section>
+</div>
+
+<!-- ============ SECURITY ============ -->
+<div class="page" data-route="/security">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Confidentiality &amp; data security</p>
+    <h1>Confidentiality &amp; data security</h1>
+    <p class="lede">We work with your ledgers, contracts, tax filings and payroll. The handling standards below apply to every mandate and are written into every engagement letter.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-2">
+    <div class="card"><h3>NDA before data</h3><p>A mutual non-disclosure agreement is signed before any client information is shared, including during the first scoping conversation.</p></div>
+    <div class="card"><h3>Least-privilege access</h3><p>Only named team members on the mandate receive access. Read-only wherever the work permits it. Access is revoked at engagement close, with a record of removal.</p></div>
+    <div class="card"><h3>Client-controlled environments</h3><p>Where you prefer it, we work entirely inside your systems and your data never leaves your environment. We have run full mandates this way.</p></div>
+    <div class="card"><h3>Encryption in transit and at rest</h3><p>Data exchange happens over encrypted channels through a secure repository. Ad-hoc email attachments of sensitive data are not used.</p></div>
+    <div class="card"><h3>Device and endpoint controls</h3><p>Firm-managed devices with full-disk encryption, screen lock, endpoint protection and no client data on removable media.</p></div>
+    <div class="card"><h3>Defined retention</h3><p>Working papers are retained only as long as professional and statutory requirements need. Client data is returned or destroyed on request, with written confirmation.</p></div>
+  </div></div></section>
+  <section class="band alt"><div class="wrap">
+    <div class="band-head"><h2>Independence and conflicts</h2></div>
+    <ul class="ticks" style="max-width:74ch">
+      <li>We run a conflict check before accepting any mandate and will decline where a conflict exists</li>
+      <li>We accept no commission, referral fee or revenue share from software or service vendors</li>
+      <li>Every team member signs an individual confidentiality undertaking on joining</li>
+      <li>Sector insight is shared only in de-identified form, never with client-identifiable detail</li>
+      <li>We will not name you as a client, publicly or in a proposal, without your written consent</li>
+    </ul>
+    <p class="form-note" style="margin-top:22px">Your information security or procurement team is welcome to send us a vendor assessment questionnaire. We complete them as standard.</p>
+  </div></section>
+  <section class="cta"><div class="wrap"><h2>Procurement questions welcome.</h2><p>Send your vendor onboarding pack, security questionnaire or DPA template and we will turn it around.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Contact us</a></div></div></section>
+</div>
+
+<!-- ============ FAQ ============ -->
+<div class="page" data-route="/faq">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Questions</p>
+    <h1>Questions we are asked before every mandate</h1>
+    <p class="lede">If yours is not here, ask it directly. We would rather answer it now than during a proposal.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><dl class="faq" style="max-width:76ch">
+    <dt>How is this different from what our statutory or internal auditors do?</dt>
+    <dd>Auditors test whether what happened was recorded correctly. We test whether the process itself is costing you money, and then we change it. Our output is a redesigned function, not an opinion.</dd>
+    <dt>Will this disrupt our team during month-end?</dt>
+    <dd>We schedule interviews and testing around your close calendar and take data extracts rather than your controller's time. Most of the effort is ours.</dd>
+    <dt>How much of our team's time does a mandate need?</dt>
+    <dd>Roughly two to four hours per process owner during the first fortnight, then a fortnightly decision forum of forty-five minutes. Automation phases need more involvement from the process owners of the workflows being built.</dd>
+    <dt>Do you replace our ERP?</dt>
+    <dd>Only if its architecture genuinely cannot support your structure or controls. We take no vendor fees, so we have no incentive to recommend replacement.</dd>
+    <dt>Can fees be linked to recovery?</dt>
+    <dd>On specific tax recovery mandates where a baseline can be measured objectively, yes. For transformation work we use fixed fees by phase, because outcome-linked fees distort scope.</dd>
+    <dt>Who will actually do the work?</dt>
+    <dd>The partner who scopes your mandate runs it, with a tax lead and an automation lead named in the engagement letter. You will meet them before you sign.</dd>
+    <dt>What happens at the end?</dt>
+    <dd>Documentation, training and a defined support taper. If a retainer stops producing measurable value, we will tell you to end it.</dd>
+    <dt>Will you sign our NDA, DPA and vendor agreements?</dt>
+    <dd>Yes. We work to client paper routinely and complete security questionnaires as standard.</dd>
+    <dt>Do you work outside India?</dt>
+    <dd>We work with Indian corporates including their overseas subsidiaries, coordinating with local advisors where local filing expertise is required.</dd>
+    <dt>What size of company do you work with?</dt>
+    <dd>Our work pays for itself above roughly ₹250Cr of turnover or a comparable transaction volume. Below that, we will usually tell you so.</dd>
+  </dl></div></section>
+  <section class="cta"><div class="wrap"><h2>Ask the one we didn't answer.</h2><p>Straight answers, no proposal attached.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Ask us</a></div></div></section>
+</div>
+
+<!-- ============ PRIVACY ============ -->
+<div class="page" data-route="/privacy">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Privacy policy</p>
+    <h1>Privacy policy</h1>
+    <p class="lede">How Gakasvi handles personal information collected through this website and in the course of client engagements. Last updated September 2026.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><article class="longform">
+    <h3>What we collect</h3>
+    <p>Through this website, we collect only what you submit through the enquiry form: your name, work email, company, phone number if you provide it, and the content of your message. We do not use advertising or tracking cookies on this site.</p>
+    <h3>Why we collect it</h3>
+    <p>To respond to your enquiry, to assess whether we can help, and to send you the quarterly insights note if you have asked for it. We do not sell or rent personal information, and we do not share it with third parties for their own marketing.</p>
+    <h3>Client engagement data</h3>
+    <p>Information received during an engagement, including any personal data within financial records, is processed only for the purposes set out in the engagement letter, under the confidentiality terms agreed there, and in line with the handling standards on our <a href="#/security">confidentiality and data security</a> page.</p>
+    <h3>How long we keep it</h3>
+    <p>Enquiry correspondence is retained for as long as there is an active business relationship or prospect, and then deleted on request. Engagement working papers are retained for the period required by professional and statutory obligations.</p>
+    <h3>Your rights</h3>
+    <p>You may ask us what personal information we hold about you, ask for it to be corrected, ask for it to be deleted, or withdraw consent to receive the insights note at any time. Write to arun.gakasvi@gmail.com and we will respond within thirty days.</p>
+    <h3>Security</h3>
+    <p>We apply encryption in transit and at rest, least-privilege access, firm-managed encrypted devices and defined retention periods. No system is perfectly secure, and we will tell you promptly if a breach affects your information.</p>
+    <h3>Contact</h3>
+    <p>Gakasvi, A-426, Logix Technova, Sector-132, Noida 201304, India. Email arun.gakasvi@gmail.com, phone +91 8505804836.</p>
+  </article></div></section>
+</div>
+
+<!-- ============ TERMS ============ -->
+<div class="page" data-route="/terms">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Terms of use</p>
+    <h1>Terms of use</h1>
+    <p class="lede">The terms on which this website is made available. Last updated September 2026.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><article class="longform">
+    <h3>Information, not advice</h3>
+    <p>Everything on this site, including the insights articles, is general information about our services and about finance, tax and compliance practice. It is not professional advice and must not be relied on for any specific decision. Tax and regulatory positions depend entirely on facts and on law in force at the time. Take advice on your own circumstances before acting.</p>
+    <h3>No engagement created</h3>
+    <p>Using this site or submitting the enquiry form does not create a client relationship. An engagement begins only when we have completed conflict checks and both parties have signed an engagement letter.</p>
+    <h3>Accuracy</h3>
+    <p>We take care that the content here is accurate when published but do not warrant that it remains current. Statistics describing our work are aggregated across mandates and are not a representation about results in any individual case.</p>
+    <h3>Intellectual property</h3>
+    <p>The content, methodology descriptions, name and marks on this site belong to Gakasvi. You may read, quote with attribution, and share links. You may not republish substantial portions or present our material as your own.</p>
+    <h3>Confidential information</h3>
+    <p>Do not send confidential or sensitive information through the enquiry form. Share it only after a non-disclosure agreement is in place and through the secure channel we will provide.</p>
+    <h3>Liability</h3>
+    <p>To the extent permitted by law, we accept no liability for loss arising from use of, or reliance on, this website. Liability for our professional services is governed solely by the relevant engagement letter.</p>
+    <h3>Governing law</h3>
+    <p>These terms are governed by the laws of India, and the courts at Gautam Buddha Nagar, Uttar Pradesh have exclusive jurisdiction.</p>
+  </article></div></section>
+</div>
+
+<!-- ============ 404 ============ -->
+<div class="page" data-route="/404">
+  <div class="phead"><div class="wrap">
+    <p class="crumb"><a href="#/">Home</a> / Page not found</p>
+    <h1>That page isn't here</h1>
+    <p class="lede">The link may be out of date. Start from the services overview, or tell us what you were looking for.</p>
+  </div></div>
+  <section class="band"><div class="wrap"><div class="grid-3">
+    <a class="card card-link" href="#/services"><h3>Services</h3><p>The five disciplines and how they fit together.</p></a>
+    <a class="card card-link" href="#/insights"><h3>Insights</h3><p>Notes from live mandates, written for finance leaders.</p></a>
+    <a class="card card-link" href="#/contact"><h3>Contact</h3><p>A partner responds within one working day.</p></a>
+  </div></div></section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-mark">GAKASVI.</div>
+        <p class="foot-about">Finance transformation, tax efficiency and compliance advisory for large corporates. We find what your finance function is losing. Then we fix it.</p>
+        <p style="margin-top:16px">gakasvi.com</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#/services/process-audit">Finance process audit</a>
+        <a href="#/services/tax-compliance">Tax efficiency &amp; compliance</a>
+        <a href="#/services/accounting-automation">Accounting automation</a>
+        <a href="#/services/process-automation">Business process automation</a>
+        <a href="#/services/function-design">Finance function design</a>
+      </div>
+      <div>
+        <h4>Firm</h4>
+        <a href="#/about">About</a>
+        <a href="#/approach">Approach</a>
+        <a href="#/industries">Industries</a>
+        <a href="#/results">Results</a>
+        <a href="#/insights">Insights</a>
+        <a href="#/careers">Careers</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:arun.gakasvi@gmail.com">arun.gakasvi@gmail.com</a>
+        <a href="tel:+918505804836">+91 8505804836</a>
+        <p style="margin:8px 0 0">A-426, Logix Technova,<br>Sector-132, Noida 201304, India</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Gakasvi. All rights reserved.</span>
+      <span>
+        <a href="#/privacy" style="display:inline;padding:0">Privacy</a> ·
+        <a href="#/terms" style="display:inline;padding:0">Terms</a> ·
+        <a href="#/security" style="display:inline;padding:0">Confidentiality &amp; security</a> ·
+        <a href="#/faq" style="display:inline;padding:0">FAQ</a>
+      </span>
+      <span>Finance · Tax · Compliance · Automation</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('burger');
+
+  function routeOf(){
+    var h = location.hash.replace(/^#/,'');
+    if(!h || h === '/' || h === '') return '/';
+    return h.replace(/\/+$/,'') || '/';
+  }
+  function show(){
+    var r = routeOf();
+    var target = pages.filter(function(p){ return p.getAttribute('data-route') === r; })[0];
+    if(!target){ target = pages.filter(function(p){ return p.getAttribute('data-route') === '/404'; })[0]; }
+    pages.forEach(function(p){ p.classList.toggle('active', p === target); });
+    // nav state
+    Array.prototype.forEach.call(nav.querySelectorAll('a'), function(a){
+      var href = a.getAttribute('href').replace(/^#/,'');
+      var on = href === r || (href !== '/' && r.indexOf(href + '/') === 0);
+      if(on){ a.setAttribute('aria-current','page'); } else { a.removeAttribute('aria-current'); }
+    });
+    nav.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+    var h1 = target.querySelector('h1');
+    document.title = (h1 ? h1.textContent.trim() + ' — Gakasvi' : 'Gakasvi');
+    window.scrollTo(0,0);
+    if(h1){ h1.setAttribute('tabindex','-1'); h1.focus({preventScroll:true}); }
+  }
+  window.addEventListener('hashchange', show);
+  if(!location.hash){ location.replace('#/'); }
+  show();
+
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // hero mute/unmute toggle
+  var heroVideo = document.getElementById('heroVideo');
+  var muteBtn = document.getElementById('heroMuteToggle');
+  if(heroVideo && muteBtn){
+    muteBtn.addEventListener('click', function(){
+      heroVideo.muted = !heroVideo.muted;
+      muteBtn.textContent = heroVideo.muted ? '🔇 Video muted' : '🔊 Video sound on';
+      muteBtn.setAttribute('aria-pressed', heroVideo.muted ? 'true' : 'false');
+    });
+  }
+
+  // mark reveal targets (cards, rows, stats, posts) so they fade/slide in on scroll
+  var revealSelector = '.card, .row, .stat, .post';
+  function markReveals(root){
+    Array.prototype.forEach.call(root.querySelectorAll(revealSelector), function(el){
+      el.classList.add('reveal');
+    });
+  }
+  pages.forEach(markReveals);
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'}) : null;
+
+  function observeVisible(){
+    var active = document.querySelector('.page.active');
+    if(!active) return;
+    if(!io){ Array.prototype.forEach.call(active.querySelectorAll('.reveal'), function(el){ el.classList.add('in'); }); return; }
+    Array.prototype.forEach.call(active.querySelectorAll('.reveal:not(.in)'), function(el){ io.observe(el); });
+  }
+  observeVisible();
+  window.addEventListener('hashchange', function(){ setTimeout(observeVisible, 30); });
+
+  // animated counters for stat numbers
+  function animateCounter(el){
+    if(reduceMotion || el.dataset.counted) {
+      var pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      el.textContent = pre + el.dataset.countTo + suf;
+      el.dataset.counted = '1';
+      return;
+    }
+    el.dataset.counted = '1';
+    var target = parseInt(el.dataset.countTo, 10) || 0;
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var dur = 1200, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min(1, (ts - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(eased * target) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counterIo = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ animateCounter(entry.target); counterIo.unobserve(entry.target); }
+    });
+  }, {threshold:.4}) : null;
+  function observeCounters(){
+    var active = document.querySelector('.page.active');
+    if(!active) return;
+    var nums = active.querySelectorAll('b[data-count-to]:not([data-counted])');
+    if(!counterIo){ Array.prototype.forEach.call(nums, animateCounter); return; }
+    Array.prototype.forEach.call(nums, function(el){ counterIo.observe(el); });
+  }
+  observeCounters();
+  window.addEventListener('hashchange', function(){ setTimeout(observeCounters, 30); });
+
+  // enquiry form
+  var form = document.getElementById('enquiry');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var ok = true;
+      Array.prototype.forEach.call(form.querySelectorAll('.field'), function(f){
+        var input = f.querySelector('input,textarea');
+        if(!input || !input.required) return;
+        var v = (input.value || '').trim();
+        var bad = !v || (input.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v));
+        f.classList.toggle('invalid', bad);
+        if(bad && ok){ input.focus(); ok = false; }
+      });
+      if(!ok) return;
+      var d = new FormData(form);
+      var body = 'Name: ' + d.get('name') + '\n'
+        + 'Company: ' + d.get('company') + '\n'
+        + 'Email: ' + d.get('email') + '\n'
+        + 'Phone: ' + (d.get('phone') || '—') + '\n'
+        + 'Topic: ' + d.get('topic') + '\n\n'
+        + d.get('message');
+      var link = 'mailto:arun.gakasvi@gmail.com?subject='
+        + encodeURIComponent('Enquiry — ' + d.get('company') + ' — ' + d.get('topic'))
+        + '&body=' + encodeURIComponent(body);
+      document.getElementById('mailto').setAttribute('href', link);
+      form.style.display = 'none';
+      document.getElementById('sent').classList.add('show');
+    });
+    Array.prototype.forEach.call(form.querySelectorAll('input,textarea'), function(i){
+      i.addEventListener('input', function(){ var f = i.closest('.field'); if(f) f.classList.remove('invalid'); });
+    });
+  }
+})();
+</script>
+</body>
+</html>
