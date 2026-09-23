@@ -87,21 +87,66 @@ img{max-width:100%}
 }
 
 /* ---------- hero ---------- */
-.hero{border-bottom:1px solid var(--rule);padding:clamp(48px,7vw,86px) 0 0}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule);padding:clamp(64px,9vw,110px) 0 0;color:#fff;isolation:isolate}
+.hero-media{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,#0A1826,#10243A)}
+.hero-media video{width:100%;height:100%;object-fit:cover;opacity:.55;display:block}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,14,22,.78) 0%,rgba(6,14,22,.72) 45%,rgba(6,14,22,.94) 100%)}
 .hero-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:56px;align-items:start}
-.kicker{font-size:.85rem;color:var(--accent);margin:0 0 20px;letter-spacing:.02em}
-.hero h1{margin-bottom:22px;max-width:15ch}
-.hero .lede{margin-bottom:30px}
+.kicker{font-size:.85rem;color:#8FD7C9;margin:0 0 20px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+.hero h1{margin-bottom:22px;max-width:16ch;color:#fff}
+.hero .lede{margin-bottom:30px;color:#C4D2DD}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;padding-bottom:clamp(40px,6vw,66px)}
-.ladder{border-left:1px solid var(--rule);padding-left:26px}
-.ladder-title{font-size:.86rem;color:var(--muted);margin:0 0 18px}
+.hero .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.hero .btn-ghost:hover{border-color:#fff}
+.ladder{border-left:1px solid rgba(255,255,255,.18);padding-left:26px}
+.ladder-title{font-size:.86rem;color:#9FB0BF;margin:0 0 18px}
 .ladder ol{list-style:none;margin:0;padding:0;counter-reset:s}
-.ladder li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--rule)}
+.ladder li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14)}
 .ladder li:last-child{border-bottom:0}
-.ladder li::before{content:counter(s,decimal-leading-zero);font-size:.8rem;color:var(--amber);padding-top:3px}
-.ladder b{font-family:"Source Serif 4",serif;font-weight:600;font-size:1.02rem;display:block}
-.ladder small{color:var(--muted);font-size:.87rem;line-height:1.45;display:block;margin-top:2px}
-@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:38px}.ladder{border-left:0;padding-left:0;border-top:1px solid var(--rule);padding-top:26px}}
+.ladder li::before{content:counter(s,decimal-leading-zero);font-size:.8rem;color:#D9A05B;padding-top:3px}
+.ladder b{font-family:"Source Serif 4",serif;font-weight:600;font-size:1.02rem;display:block;color:#fff}
+.ladder small{color:#9FB0BF;font-size:.87rem;line-height:1.45;display:block;margin-top:2px}
+.mute-toggle{position:absolute;right:24px;bottom:20px;z-index:2;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.78rem;padding:8px 14px;cursor:pointer;font-family:inherit;backdrop-filter:blur(6px)}
+.mute-toggle:hover{background:rgba(255,255,255,.18)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr;gap:38px}.ladder{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.16);padding-top:26px}.mute-toggle{display:none}}
+@media (prefers-reduced-motion:reduce){.hero-media video{display:none}}
+
+/* ---------- marquee ---------- */
+.marquee-wrap{border-bottom:1px solid var(--rule);background:var(--paper-2);overflow:hidden;padding:16px 0}
+.marquee-wrap p{margin:0 0 10px;text-align:center;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.marquee{display:flex;width:max-content;gap:56px;animation:scrollmq 32s linear infinite}
+.marquee span{font-family:"Source Serif 4",serif;font-size:1.05rem;color:var(--muted);white-space:nowrap;opacity:.85}
+@keyframes scrollmq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee{animation:none;flex-wrap:wrap;justify-content:center}}
+
+/* ---------- video band ---------- */
+.videoband{position:relative;overflow:hidden;color:#fff;isolation:isolate}
+.videoband video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:-2;opacity:.5}
+.videoband::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(6,14,22,.92),rgba(10,24,38,.72));z-index:-1}
+.videoband-in{padding:clamp(64px,9vw,108px) 0;max-width:720px}
+.videoband .mark{color:#8FD7C9}
+.videoband h2{color:#fff;margin-bottom:16px}
+.videoband p{color:#C4D2DD}
+@media (prefers-reduced-motion:reduce){.videoband video{display:none}}
+
+/* ---------- scroll reveal ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- photo banner (static image version of videoband) ---------- */
+.photo-banner{position:relative;overflow:hidden;color:#fff;isolation:isolate;min-height:280px;display:flex;align-items:flex-end}
+.photo-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.photo-banner::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,14,22,.92) 0%,rgba(6,14,22,.55) 55%,rgba(6,14,22,.35) 100%);z-index:-1}
+.photo-banner-in{padding:34px 0;max-width:680px}
+.photo-banner .mark{color:#8FD7C9}
+.photo-banner h2,.photo-banner h3{color:#fff}
+.photo-banner p{color:#C4D2DD;margin:0}
+
+/* ---------- inline framed photo ---------- */
+.inline-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--rule);display:block}
+.photo-caption{font-size:.82rem;color:var(--muted);margin-top:10px}
+.photo-col{display:flex;flex-direction:column}
 
 /* ---------- generic page head ---------- */
 .phead{padding:clamp(44px,6vw,74px) 0 clamp(30px,4vw,46px);border-bottom:1px solid var(--rule)}
@@ -234,6 +279,12 @@ footer a:hover{color:#fff}
 <!-- ============ HOME ============ -->
 <div class="page" data-route="/">
   <div class="hero">
+    <div class="hero-media">
+      <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
+        <source src="https://assets.mixkit.co/videos/38521/38521-360.mp4" type="video/mp4">
+      </video>
+    </div>
+    <button class="mute-toggle" id="heroMuteToggle" type="button" aria-pressed="true">🔇 Video muted</button>
     <div class="wrap">
       <div class="hero-grid">
         <div>
@@ -256,6 +307,14 @@ footer a:hover{color:#fff}
           </ol>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <p>Sector depth across</p>
+    <div class="marquee" aria-hidden="true">
+      <span>Manufacturing &amp; Engineering</span><span>Retail &amp; Consumer</span><span>Technology &amp; Services</span><span>Infrastructure &amp; EPC</span><span>Pharmaceuticals &amp; Healthcare</span><span>Banking &amp; Financial Services</span>
+      <span>Manufacturing &amp; Engineering</span><span>Retail &amp; Consumer</span><span>Technology &amp; Services</span><span>Infrastructure &amp; EPC</span><span>Pharmaceuticals &amp; Healthcare</span><span>Banking &amp; Financial Services</span>
     </div>
   </div>
 
@@ -282,10 +341,23 @@ footer a:hover{color:#fff}
         <p class="lede">We don't audit for the sake of auditing. Every engagement ends with a finance function your board can rely on — and a number attached to what it recovered.</p>
       </div>
       <div class="stats">
-        <div class="stat"><b>₹500Cr+</b><span>Recovered in tax leakages across mandates</span></div>
-        <div class="stat"><b>100%</b><span>Compliance track record across all clients</span></div>
-        <div class="stat"><b>200+</b><span>Finance processes automated across industries</span></div>
-        <div class="stat"><b>15+</b><span>Years of advisory experience in Indian corporates</span></div>
+        <div class="stat"><b data-count-to="500" data-suffix="Cr+" data-prefix="₹">₹0Cr+</b><span>Recovered in tax leakages across mandates</span></div>
+        <div class="stat"><b data-count-to="100" data-suffix="%">0%</b><span>Compliance track record across all clients</span></div>
+        <div class="stat"><b data-count-to="200" data-suffix="+">0+</b><span>Finance processes automated across industries</span></div>
+        <div class="stat"><b data-count-to="15" data-suffix="+">0+</b><span>Years of advisory experience in Indian corporates</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="videoband">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://assets.mixkit.co/videos/21629/21629-360.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="videoband-in">
+        <span class="mark">Inside a live mandate</span>
+        <h2>The same discipline a global finance team applies to its own numbers, applied to yours.</h2>
+        <p>Full-population testing, documented process ownership, and a redesign your team can run without us in the room — the working method behind every engagement, on every mandate.</p>
       </div>
     </div>
   </section>
@@ -323,6 +395,13 @@ footer a:hover{color:#fff}
     <h1>What we do</h1>
     <p class="lede">Five disciplines that can be bought separately and are worth far more together. Each one carries a defined scope, a fixed deliverable set, and a measurable outcome.</p>
   </div></div>
+  <section class="photo-banner">
+    <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?q=80&amp;w=1800&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+    <div class="wrap"><div class="photo-banner-in">
+      <span class="mark">Fixed scope, fixed fee</span>
+      <h3>Every discipline below has a defined deliverable set before work starts.</h3>
+    </div></div>
+  </section>
 
   <section class="band">
     <div class="wrap">
@@ -553,6 +632,13 @@ footer a:hover{color:#fff}
     <h1>A five-step mandate. No ambiguity.</h1>
     <p class="lede">Every engagement follows the same sequence. You know what happens each week, who is involved, and what lands at the end of each stage.</p>
   </div></div>
+  <section class="photo-banner">
+    <img src="https://images.unsplash.com/photo-1644519797636-e32b88d730bd?q=80&amp;w=1800&amp;auto=format&amp;fit=crop" alt="" loading="lazy">
+    <div class="wrap"><div class="photo-banner-in">
+      <span class="mark">Understand → Identify → Redesign → Automate → Optimise</span>
+      <h3>The same five stages, on every mandate, in the same order.</h3>
+    </div></div>
+  </section>
   <section class="band"><div class="wrap">
     <div class="rows">
       <div class="row"><span class="idx">01</span><h3>Understand</h3><p>Deep-dive into your existing finance processes, systems and controls. Walkthroughs with the people who actually run them, and extraction of full transaction data.</p><span class="more">Weeks 1–2</span></div>
@@ -593,6 +679,18 @@ footer a:hover{color:#fff}
     <h1>Industries</h1>
     <p class="lede">A gap analysis is only as good as the sector knowledge behind it. These are the industries where we know what to look for before we arrive.</p>
   </div></div>
+  <section class="videoband">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://assets.mixkit.co/videos/1509/1509-360.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="videoband-in">
+        <span class="mark">Across six sectors</span>
+        <h2>Different balance sheets. The same failure modes.</h2>
+        <p>Manufacturing, retail, technology, infrastructure, pharma and financial services all lose value in different places — but for the same handful of reasons.</p>
+      </div>
+    </div>
+  </section>
   <section class="band"><div class="wrap"><div class="grid-2">
     <div class="card"><h3>Manufacturing &amp; engineering</h3><p>Job-work credit chains, plant-level procurement discipline, scrap and by-product accounting, cost centre design, and the input credit that goes missing between plant and head office.</p></div>
     <div class="card"><h3>Retail &amp; consumer goods</h3><p>Distributor schemes and credit notes, high-volume receivables reconciliation, returns accounting, and trade spend that is approved commercially but never tested financially.</p></div>
@@ -624,11 +722,23 @@ footer a:hover{color:#fff}
     <p class="lede">Client names are confidential by default. The numbers, the scope and the method are not — and we will walk any prospective client through a full case under NDA.</p>
   </div></div>
   <section class="band"><div class="wrap"><div class="stats">
-    <div class="stat"><b>₹500Cr+</b><span>Recovered in tax leakages across mandates</span></div>
-    <div class="stat"><b>100%</b><span>Compliance track record across all clients</span></div>
-    <div class="stat"><b>200+</b><span>Finance processes automated across industries</span></div>
-    <div class="stat"><b>15+</b><span>Years of advisory experience in Indian corporates</span></div>
+    <div class="stat"><b data-count-to="500" data-suffix="Cr+" data-prefix="₹">₹0Cr+</b><span>Recovered in tax leakages across mandates</span></div>
+    <div class="stat"><b data-count-to="100" data-suffix="%">0%</b><span>Compliance track record across all clients</span></div>
+    <div class="stat"><b data-count-to="200" data-suffix="+">0+</b><span>Finance processes automated across industries</span></div>
+    <div class="stat"><b data-count-to="15" data-suffix="+">0+</b><span>Years of advisory experience in Indian corporates</span></div>
   </div></div></section>
+  <section class="videoband">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://assets.mixkit.co/videos/9607/9607-360.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="videoband-in">
+        <span class="mark">How we measure a mandate</span>
+        <h2>Recovered. Protected. Released. Every number traceable to your own ledger.</h2>
+        <p>We do not count avoided costs we cannot evidence — the same standard we hold your finance function to.</p>
+      </div>
+    </div>
+  </section>
   <section class="band alt"><div class="wrap">
     <div class="band-head"><h2>Selected mandates</h2></div>
     <div class="grid-2">
@@ -675,8 +785,22 @@ footer a:hover{color:#fff}
         <li>A defined end. We hand the function back and taper out.</li>
         <li>Independence. We take no commission from any software vendor we recommend.</li>
       </ul>
+      <img class="inline-photo" style="margin-top:22px" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Advisory team reviewing findings together in a working session" loading="lazy">
+      <p class="photo-caption">Findings reviewed with the client team before they reach the board — not after.</p>
     </div>
   </div></div></section>
+  <section class="videoband">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://assets.mixkit.co/videos/146/146-360.mp4" type="video/mp4">
+    </video>
+    <div class="wrap">
+      <div class="videoband-in">
+        <span class="mark">Fifteen years in</span>
+        <h2>Senior people on the ground, not on the org chart.</h2>
+        <p>The partner who scopes your mandate is the one who runs it — through the audit, the redesign, and the automation build that follows.</p>
+      </div>
+    </div>
+  </section>
   <section class="band alt"><div class="wrap">
     <div class="band-head"><h2>Leadership</h2></div>
     <div class="grid-2">
@@ -904,7 +1028,8 @@ footer a:hover{color:#fff}
       </div>
     </div>
     <div>
-      <h2>Direct lines</h2>
+      <img class="inline-photo" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Corporate office towers, representative of the environment our clients operate in" loading="lazy">
+      <h2 style="margin-top:22px">Direct lines</h2>
       <ul class="ticks">
         <li><strong>Email</strong><br><a href="mailto:arun.gakasvi@gmail.com">arun.gakasvi@gmail.com</a></li>
         <li><strong>Phone</strong><br><a href="tel:+918505804836">+91 8505 804 836</a></li>
@@ -1157,6 +1282,82 @@ footer a:hover{color:#fff}
     var open = nav.classList.toggle('open');
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+
+  // hero mute/unmute toggle
+  var heroVideo = document.getElementById('heroVideo');
+  var muteBtn = document.getElementById('heroMuteToggle');
+  if(heroVideo && muteBtn){
+    muteBtn.addEventListener('click', function(){
+      heroVideo.muted = !heroVideo.muted;
+      muteBtn.textContent = heroVideo.muted ? '🔇 Video muted' : '🔊 Video sound on';
+      muteBtn.setAttribute('aria-pressed', heroVideo.muted ? 'true' : 'false');
+    });
+  }
+
+  // mark reveal targets (cards, rows, stats, posts) so they fade/slide in on scroll
+  var revealSelector = '.card, .row, .stat, .post';
+  function markReveals(root){
+    Array.prototype.forEach.call(root.querySelectorAll(revealSelector), function(el){
+      el.classList.add('reveal');
+    });
+  }
+  pages.forEach(markReveals);
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'}) : null;
+
+  function observeVisible(){
+    var active = document.querySelector('.page.active');
+    if(!active) return;
+    if(!io){ Array.prototype.forEach.call(active.querySelectorAll('.reveal'), function(el){ el.classList.add('in'); }); return; }
+    Array.prototype.forEach.call(active.querySelectorAll('.reveal:not(.in)'), function(el){ io.observe(el); });
+  }
+  observeVisible();
+  window.addEventListener('hashchange', function(){ setTimeout(observeVisible, 30); });
+
+  // animated counters for stat numbers
+  function animateCounter(el){
+    if(reduceMotion || el.dataset.counted) {
+      var pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      el.textContent = pre + el.dataset.countTo + suf;
+      el.dataset.counted = '1';
+      return;
+    }
+    el.dataset.counted = '1';
+    var target = parseInt(el.dataset.countTo, 10) || 0;
+    var prefix = el.dataset.prefix || '';
+    var suffix = el.dataset.suffix || '';
+    var dur = 1200, start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min(1, (ts - start) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(eased * target) + suffix;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var counterIo = ('IntersectionObserver' in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ animateCounter(entry.target); counterIo.unobserve(entry.target); }
+    });
+  }, {threshold:.4}) : null;
+  function observeCounters(){
+    var active = document.querySelector('.page.active');
+    if(!active) return;
+    var nums = active.querySelectorAll('b[data-count-to]:not([data-counted])');
+    if(!counterIo){ Array.prototype.forEach.call(nums, animateCounter); return; }
+    Array.prototype.forEach.call(nums, function(el){ counterIo.observe(el); });
+  }
+  observeCounters();
+  window.addEventListener('hashchange', function(){ setTimeout(observeCounters, 30); });
 
   // enquiry form
   var form = document.getElementById('enquiry');
