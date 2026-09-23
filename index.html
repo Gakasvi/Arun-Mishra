@@ -535,30 +535,62 @@ footer a:hover{color:#fff}
         <li>One chart of accounts across entities, with a documented mapping</li>
         <li>One accounting manual: policies written as instructions, not principles</li>
         <li>One close calendar, with dependencies and owners named</li>
-        <li>Standard journal templates with embedded validation</li>
-      </ul>
-    </div>
-    <div>
-      <h2>Then automate</h2>
-      <ul class="ticks">
-        <li>Bank, vendor, customer and intercompany reconciliations</li>
-        <li>Accruals, prepayments, depreciation and recurring journals</li>
-        <li>Invoice capture and three-way matching</li>
-        <li>Consolidation, eliminations and reporting pack generation</li>
-        <li>Exception reporting so people review breaks, not everything</li>
-      </ul>
-    </div>
-  </div></div></section>
-  <section class="band alt"><div class="wrap">
-    <div class="band-head"><h2>What usually changes</h2></div>
-    <div class="stats">
-      <div class="stat"><b>−60%</b><span>Typical reduction in close cycle days</span></div>
-      <div class="stat"><b>−75%</b><span>Manual journal entries after standardisation</span></div>
-      <div class="stat"><b>200+</b><span>Processes automated across client mandates</span></div>
-      <div class="stat"><b>100%</b><span>Reconciliations with a documented owner</span></div>
-    </div>
-  </div></section>
-  <section class="cta"><div class="wrap"><h2>Close the books in days, not weeks.</h2><p>We work with the ERP you already own. Replacing it is a last resort, not a starting assumption.</p><div class="row-actions"><a class="btn btn-light" href="#/contact">Talk to us</a></div></div></section>
+       // enquiry form
+  var form = document.getElementById('enquiry');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var ok = true;
+      Array.prototype.forEach.call(form.querySelectorAll('.field'), function(f){
+        var input = f.querySelector('input,textarea,select');
+        if(!input || !input.required) return;
+        var v = (input.value || '').trim();
+        var bad = !v || (input.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v));
+        f.classList.toggle('invalid', bad);
+        if(bad && ok){ input.focus(); ok = false; }
+      });
+      if(!ok) return;
+
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      // Submit form directly to your Formspree endpoint
+      fetch('https://formspree.io/f/xwlpbqgr', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          var sentDiv = document.getElementById('sent');
+          
+          // Custom success message
+          sentDiv.querySelector('h3').textContent = 'Enquiry Sent Successfully';
+          sentDiv.querySelector('p').textContent = 'Thank you for reaching out. A partner will respond within one working day.';
+          
+          var mailtoBtn = document.getElementById('mailto');
+          if(mailtoBtn) mailtoBtn.style.display = 'none';
+          
+          sentDiv.classList.add('show');
+        } else {
+          alert('Submission failed. Please try emailing us directly at arun.gakasvi@gmail.com');
+          btn.disabled = false;
+          btn.textContent = 'Send enquiry';
+        }
+      }).catch(function(error) {
+        alert('Network error. Please try again or email us directly.');
+        btn.disabled = false;
+        btn.textContent = 'Send enquiry';
+      });
+    });
+
+    Array.prototype.forEach.call(form.querySelectorAll('input,textarea,select'), function(i){
+      i.addEventListener('input', function(){ var f = i.closest('.field'); if(f) f.classList.remove('invalid'); });
+    });
+  }/contact">Talk to us</a></div></div></section>
 </div>
 
 <!-- ---- service detail: BPA ---- -->
